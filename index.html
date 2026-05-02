@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Force</title>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2589/2589175.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">URBAN FORCE</div>
+
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 <span id="cart-count">0</span>
+        </div>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <h1>JUST WEAR IT</h1>
+        <p>Moda urbana premium</p>
+        <button onclick="goToProducts()">Comprar Ahora</button>
+    </div>
+</section>
+
+<section class="products" id="productos">
+    <h2>Nueva Colección</h2>
+    <div id="product-grid" class="product-grid"></div>
+</section>
+
+<section class="contact-section" id="contacto">
+    <h2>Contacto</h2>
+    <p>contacto@brandonherrera2025.com</p>
+    <p>+57 3147705634</p>
+</section>
+
+<div class="cart" id="cart">
+    <h2>Carrito</h2>
+
+    <div id="cart-items"></div>
+
+    <h3>Total: $<span id="total">0</span></h3>
+
+    <button class="checkout" onclick="showCheckout()">
+        Finalizar Compra
+    </button>
+
+    <div id="checkout-form">
+        <input type="text" id="nombre" placeholder="Nombre completo">
+        <input type="text" id="direccion" placeholder="Dirección">
+        <input type="text" id="telefono" placeholder="Teléfono">
+        <button onclick="confirmOrder()">Confirmar Pedido</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

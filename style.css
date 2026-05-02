@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fff;
+    color: #111;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background: black;
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.cart-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* HERO */
+
+.hero {
+    height: 90vh;
+    background: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    border: none;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    transform: scale(1.05);
+}
+
+/* PRODUCTS */
+
+.products {
+    padding: 80px 50px;
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product {
+    border: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+    background: white;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+}
+
+.product img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.product h3 {
+    margin: 15px 0;
+}
+
+.product button {
+    width: 100%;
+    padding: 12px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* CONTACT */
+
+.contact-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f5f5f5;
+}
+
+.contact-section h2 {
+    margin-bottom: 20px;
+}
+
+/* CART */
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+    padding: 25px;
+    transition: 0.4s;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.cart.active {
+    right: 0;
+}
+
+.cart h2 {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.quantity-controls button {
+    padding: 8px 12px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+.remove-btn {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.checkout {
+    width: 100%;
+    padding: 15px;
+    background: black;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* CHECKOUT */
+
+#checkout-form {
+    display: none;
+    margin-top: 20px;
+}
+
+#checkout-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+}
+
+#checkout-form button {
+    width: 100%;
+    padding: 14px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* ADMIN */
+
+.order-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    background: white;
+}
+
+.order-card button {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .products {
+        padding: 40px 20px;
+    }
+
+    .cart {
+        width: 100%;
+    }
+}body {
+    overflow-x: hidden;
+    
+}.nav-links a[href="admin.html"] {
+    border: 1px solid white;
+    padding: 8px 14px;
+    border-radius: 4px;
+}
+
+.nav-links a[href="admin.html"]:hover {
+    background: white;
+    color: black;
+}

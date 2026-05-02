@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Admin - Urban Force</title>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2589/2589175.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="products">
+    <h2>Panel Administrativo</h2>
+
+    <div id="stats"></div>
+
+    <div id="orders-container"></div>
+</section>
+
+<script>
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+const container = document.getElementById("orders-container");
+const stats = document.getElementById("stats");
+
+function renderOrders() {
+    container.innerHTML = "";
+
+    let totalVentas = orders.reduce((acc, order) => acc + order.total, 0);
+
+    stats.innerHTML = `
+        <div class="order-card">
+            <h3>Resumen</h3>
+            <p>Total pedidos: ${orders.length}</p>
+            <p>Total ventas: $${totalVentas.toLocaleString()}</p>
+        </div>
+    `;
+
+    if (orders.length === 0) {
+        container.innerHTML = "<p>No hay pedidos registrados</p>";
+        return;
+    }
+
+    orders.forEach((order, index) => {
+        let productosHTML = "";
+
+        order.productos.forEach(producto => {
+            productosHTML += `
+                <li>
+                    ${producto.name} x${producto.quantity}
+                </li>
+            `;
+        });
+
+        container.innerHTML += `
+            <div class="order-card">
+                <h3>Pedido #${index + 1}</h3>
+                <p><strong>Cliente:</strong> ${order.cliente}</p>
+                <p><strong>Dirección:</strong> ${order.direccion}</p>
+                <p><strong>Teléfono:</strong> ${order.telefono}</p>
+                <p><strong>Total:</strong> $${order.total.toLocaleString()}</p>
+                <p><strong>Fecha:</strong> ${order.fecha}</p>
+
+                <h4>Productos:</h4>
+                <ul>${productosHTML}</ul>
+
+                <button onclick="deleteOrder(${index})">
+                    Eliminar Pedido
+                </button>
+            </div>
+        `;
+    });
+}
+
+function deleteOrder(index) {
+    orders.splice(index, 1);
+    localStorage.setItem("orders", JSON.stringify(orders));
+    renderOrders();
+}
+
+renderOrders();
+</script>
+
+</body>
+</html>
